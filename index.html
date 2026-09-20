@@ -25,7 +25,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Cairo', sans-serif;
-            text-align: center; /* التوسيط الافتراضي لكل الموقع */
+            text-align: center;
         }
 
         body {
@@ -159,7 +159,7 @@
         }
         .section-title span { color: var(--accent); }
 
-        /* Features Grid (تخصيص الـ 6 كاردات وحدها: العنوان في المنتصف والمميزات من أول السطر) */
+        /* Features Grid (الـ 6 كاردات: العنوان في المنتصف والمميزات من أول السطر) */
         .features-section { padding: 50px 0 90px; }
         .features-grid {
             display: grid;
@@ -192,7 +192,7 @@
             align-items: center; 
             gap: 12px; 
             width: 100%;
-            text-align: center; /* العنوان في المنتصف فقط */
+            text-align: center;
         }
         .feature-list { 
             list-style: none; 
@@ -208,7 +208,7 @@
             gap: 10px; 
             font-size: 1.02rem; 
             color: var(--text-muted); 
-            text-align: right; /* المميزات تبدأ من أول السطر لليمين */
+            text-align: right; 
         }
         .feature-list li::before { 
             content: '✓'; 
@@ -275,7 +275,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Pricing Section */
+        /* Pricing Section (كاردات الأسعار: العناوين، الوصف، السعر، والحد الأدنى في المنتصف، والمميزات تبدأ من أول السطر) */
         .pricing-section { padding: 90px 0; }
         .pricing-note {
             color: var(--accent);
@@ -301,26 +301,43 @@
             border: 1px solid rgba(255, 255, 255, 0.05);
             display: flex;
             flex-direction: column;
-            align-items: center;
-            text-align: center;
+            align-items: center; /* توسيط محتوى الكارد بشكل عام */
             transition: all 0.3s ease;
+            text-align: center;
         }
         .plan-card:hover {
             border-color: rgba(255, 255, 255, 0.15);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
             transform: translateY(-4px);
         }
-        .plan-card h3 { font-size: 1.8rem; color: white; margin-bottom: 10px; }
-        .plan-desc { color: var(--text-muted); margin-bottom: 25px; font-size: 1.05rem; }
-        .price-setup { font-size: 1.7rem; font-weight: 900; color: var(--accent); margin-bottom: 8px; }
-        .price-min { display: block; font-size: 1rem; color: var(--text-muted); margin-bottom: 30px; }
+        .plan-card h3 { font-size: 1.8rem; color: white; margin-bottom: 10px; width: 100%; text-align: center; } 
+        .plan-desc { color: var(--text-muted); margin-bottom: 25px; font-size: 1.05rem; width: 100%; text-align: center; } 
         
+        .price-setup { font-size: 1.7rem; font-weight: 900; color: var(--accent); margin-bottom: 8px; width: 100%; text-align: center; } /* السعر في المنتصف */
+        .price-min { display: block; font-size: 1rem; color: var(--text-muted); margin-bottom: 30px; width: 100%; text-align: center; } /* الحد الأدنى في المنتصف */
+        
+        .plan-card .feature-list {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* المميزات تبدأ من أول السطر (يمين) */
+            width: 100%;
+            gap: 12px;
+        }
         .plan-card .feature-list li {
-            justify-content: center;
-            text-align: center;
+            justify-content: flex-start;
+            text-align: right;
+            width: 100%;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
         }
         .plan-card .feature-list li::before {
-            display: none;
+            content: '✓';
+            color: var(--success);
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            display: inline-block;
         }
 
         .demo-link {
@@ -333,9 +350,10 @@
             border-radius: 50px;
             text-decoration: none;
             border: 1px solid rgba(255, 255, 255, 0.08);
-            margin-top: 25px;
+            margin: 25px auto 0 auto;
             font-weight: 700;
             transition: all 0.3s ease;
+            align-self: center;
         }
         .demo-link:hover { 
             background: var(--accent); 
@@ -343,7 +361,7 @@
             box-shadow: 0 5px 15px var(--accent-glow);
         }
 
-        /* Form Section (حافظنا على تعديل الفورم بلونه المريح) */
+        /* Form Section */
         .form-section { padding: 90px 0; background: rgba(15, 23, 42, 0.2); }
         .form-box {
             background: #f8fafc;
@@ -400,7 +418,7 @@
             box-shadow: 0 12px 30px rgba(16, 185, 129, 0.4); 
         }
 
-        /* Footer (البيانات التي تحت الفورم أصبحت مسطنة ومنسقة في المنتصف تماماً) */
+        /* Footer */
         .footer { background-color: #05070d; padding: 80px 20px 30px; border-top: 1px solid rgba(255,255,255,0.02); text-align: center; }
         .footer-grid {
             display: grid;
