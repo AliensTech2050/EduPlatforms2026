@@ -107,26 +107,8 @@
         .hero p {
             font-size: clamp(1.1rem, 2vw, 1.25rem);
             max-width: 800px;
-            margin: 0 auto 40px;
+            margin: 0 auto;
             color: var(--text-muted);
-        }
-        .hero-btn {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            background: var(--accent);
-            color: white;
-            padding: 16px 50px;
-            font-size: 1.25rem;
-            font-weight: 900;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 25px var(--accent-glow);
-        }
-        .hero-btn:hover {
-            transform: translateY(-3px);
-            background: #ea580c;
         }
 
         /* Pain Points Banner */
@@ -135,7 +117,7 @@
             border: 1px solid rgba(239, 68, 68, 0.15);
             padding: 30px;
             border-radius: 20px;
-            margin: -50px auto 60px;
+            margin: 60px auto;
             max-width: 900px;
             display: flex;
             flex-direction: column;
@@ -275,7 +257,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Pricing Section (كاردات الأسعار: العناوين، الوصف، السعر، والحد الأدنى في المنتصف، والمميزات تبدأ من أول السطر) */
+        /* Pricing Section */
         .pricing-section { padding: 90px 0; }
         .pricing-note {
             color: var(--accent);
@@ -301,7 +283,7 @@
             border: 1px solid rgba(255, 255, 255, 0.05);
             display: flex;
             flex-direction: column;
-            align-items: center; /* توسيط محتوى الكارد بشكل عام */
+            align-items: center;
             transition: all 0.3s ease;
             text-align: center;
         }
@@ -313,13 +295,13 @@
         .plan-card h3 { font-size: 1.8rem; color: white; margin-bottom: 10px; width: 100%; text-align: center; } 
         .plan-desc { color: var(--text-muted); margin-bottom: 25px; font-size: 1.05rem; width: 100%; text-align: center; } 
         
-        .price-setup { font-size: 1.7rem; font-weight: 900; color: var(--accent); margin-bottom: 8px; width: 100%; text-align: center; } /* السعر في المنتصف */
-        .price-min { display: block; font-size: 1rem; color: var(--text-muted); margin-bottom: 30px; width: 100%; text-align: center; } /* الحد الأدنى في المنتصف */
+        .price-setup { font-size: 1.7rem; font-weight: 900; color: var(--accent); margin-bottom: 8px; width: 100%; text-align: center; } 
+        .price-min { display: block; font-size: 1rem; color: var(--text-muted); margin-bottom: 30px; width: 100%; text-align: center; } 
         
         .plan-card .feature-list {
             display: flex;
             flex-direction: column;
-            align-items: flex-start; /* المميزات تبدأ من أول السطر (يمين) */
+            align-items: flex-start;
             width: 100%;
             gap: 12px;
         }
@@ -503,7 +485,6 @@
         <div class="container">
             <h1>ارتقِ من مجرد صانع محتوى<br>إلى <span>مؤسسة تعليمية كاملة</span></h1>
             <p>منصة تعليمية ذكية تضع بين يديك نفس التكنولوجيا التي تعتمد عليها Google لخدمة العالم؛ سرعة فائقة، استقرار لا يهتز، وحماية فولاذية لمحتواك. من إدارة الحجوزات لتصحيح الامتحانات بالذكاء الاصطناعي.. تفرغ أنت للإبداع، ودع التكنولوجيا لنا.</p>
-            <a href="#booking-form" class="hero-btn">احجز منصتك الآن 👇</a>
         </div>
     </section>
 
