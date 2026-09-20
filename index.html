@@ -25,7 +25,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Cairo', sans-serif;
-            text-align: center;
+            text-align: center; /* التوسيط الافتراضي لكل الموقع */
         }
 
         body {
@@ -159,7 +159,7 @@
         }
         .section-title span { color: var(--accent); }
 
-        /* Features Grid */
+        /* Features Grid (تخصيص الـ 6 كاردات وحدها: العنوان في المنتصف والمميزات من أول السطر) */
         .features-section { padding: 50px 0 90px; }
         .features-grid {
             display: grid;
@@ -175,7 +175,7 @@
             border-top: 4px solid var(--accent);
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start;
             transition: all 0.3s ease;
         }
         .feature-card:hover { 
@@ -191,6 +191,8 @@
             flex-direction: column; 
             align-items: center; 
             gap: 12px; 
+            width: 100%;
+            text-align: center; /* العنوان في المنتصف فقط */
         }
         .feature-list { 
             list-style: none; 
@@ -201,17 +203,19 @@
         }
         .feature-list li { 
             display: flex; 
-            justify-content: center; 
-            align-items: center; 
+            justify-content: flex-start; 
+            align-items: flex-start; 
             gap: 10px; 
             font-size: 1.02rem; 
             color: var(--text-muted); 
+            text-align: right; /* المميزات تبدأ من أول السطر لليمين */
         }
         .feature-list li::before { 
             content: '✓'; 
             color: var(--success); 
             font-weight: bold; 
             font-size: 1.2rem; 
+            flex-shrink: 0;
         }
 
         /* Demo Showcase Section (Videos) */
@@ -298,6 +302,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            text-align: center;
             transition: all 0.3s ease;
         }
         .plan-card:hover {
@@ -310,6 +315,14 @@
         .price-setup { font-size: 1.7rem; font-weight: 900; color: var(--accent); margin-bottom: 8px; }
         .price-min { display: block; font-size: 1rem; color: var(--text-muted); margin-bottom: 30px; }
         
+        .plan-card .feature-list li {
+            justify-content: center;
+            text-align: center;
+        }
+        .plan-card .feature-list li::before {
+            display: none;
+        }
+
         .demo-link {
             display: inline-flex;
             justify-content: center;
@@ -330,7 +343,7 @@
             box-shadow: 0 5px 15px var(--accent-glow);
         }
 
-        /* Form Section (خلفية رمادي فاتح ناعم ومريح جداً للعين - Off-White) */
+        /* Form Section (حافظنا على تعديل الفورم بلونه المريح) */
         .form-section { padding: 90px 0; background: rgba(15, 23, 42, 0.2); }
         .form-box {
             background: #f8fafc;
@@ -345,10 +358,10 @@
             flex-direction: column;
             align-items: center;
         }
-        .form-box h2 { margin-bottom: 35px; font-size: 1.8rem; color: var(--secondary); }
+        .form-box h2 { margin-bottom: 35px; font-size: 1.8rem; color: var(--secondary); text-align: center; }
         form { width: 100%; display: flex; flex-direction: column; align-items: center; }
         .form-group { width: 100%; max-width: 500px; margin-bottom: 22px; display: flex; flex-direction: column; align-items: center; }
-        .form-group label { margin-bottom: 10px; font-weight: 700; color: var(--secondary); font-size: 1.05rem; }
+        .form-group label { margin-bottom: 10px; font-weight: 700; color: var(--secondary); font-size: 1.05rem; text-align: right; width: 100%; }
         .form-group input, .form-group select {
             width: 100%;
             padding: 15px;
@@ -358,7 +371,7 @@
             border-radius: 12px;
             font-family: inherit;
             font-size: 1rem;
-            text-align: center;
+            text-align: right;
             transition: all 0.3s ease;
         }
         .form-group input:focus, .form-group select:focus { 
@@ -387,8 +400,8 @@
             box-shadow: 0 12px 30px rgba(16, 185, 129, 0.4); 
         }
 
-        /* Footer */
-        .footer { background-color: #05070d; padding: 80px 20px 30px; border-top: 1px solid rgba(255,255,255,0.02); }
+        /* Footer (البيانات التي تحت الفورم أصبحت مسطنة ومنسقة في المنتصف تماماً) */
+        .footer { background-color: #05070d; padding: 80px 20px 30px; border-top: 1px solid rgba(255,255,255,0.02); text-align: center; }
         .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -396,9 +409,9 @@
             margin-bottom: 40px;
             justify-content: center;
         }
-        .footer-col { display: flex; flex-direction: column; align-items: center; }
-        .footer-col h4 { color: white; font-size: 1.2rem; margin-bottom: 20px; color: var(--accent); font-weight: 900; }
-        .footer-col p, .footer-col a { color: var(--text-muted); text-decoration: none; margin-bottom: 10px; line-height: 1.7; transition: color 0.3s ease; }
+        .footer-col { display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .footer-col h4 { color: white; font-size: 1.2rem; margin-bottom: 20px; color: var(--accent); font-weight: 900; text-align: center; }
+        .footer-col p, .footer-col a { color: var(--text-muted); text-decoration: none; margin-bottom: 10px; line-height: 1.7; transition: color 0.3s ease; text-align: center; }
         .footer-col a:hover { color: white; }
         
         .instapay-box {
