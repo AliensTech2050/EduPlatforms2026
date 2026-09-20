@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aliens Tech | امتلك منظومتك التعليمية الرقمية بالذكاء الاصطناعي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e293b;
+            --secondary: #0f172a;
+            --accent: #f97316;
+            --accent-glow: rgba(249, 115, 22, 0.25);
+            --success: #10b981;
+            --bg-dark: #0b0f19;
+            --bg-card: #131c2e;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+            text-align: center;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0b0f19 0%, #111827 100%);
+            color: var(--text-main);
+            line-height: 1.8;
+            overflow-x: hidden;
+            padding-bottom: 80px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Logo */
+        .site-header {
+            position: absolute;
+            top: 25px;
+            left: 0;
+            right: 0;
+            z-index: 10;
+        }
+        .header-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .logo-brand {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            background: rgba(19, 28, 46, 0.8);
+            padding: 15px 40px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        .logo-brand:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px var(--accent-glow);
+        }
+        .logo-icon {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+            margin-bottom: 6px;
+        }
+        .logo-brand .brand-text {
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--text-main);
+            letter-spacing: 1px;
+        }
+        .logo-brand .brand-text span { color: var(--accent); }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: 220px 20px 100px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            margin-bottom: 25px;
+            font-weight: 900;
+            line-height: 1.4;
+        }
+        .hero h1 span { color: var(--accent); }
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.25rem);
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: var(--text-muted);
+        }
+        .hero-btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            background: var(--accent);
+            color: white;
+            padding: 16px 50px;
+            font-size: 1.25rem;
+            font-weight: 900;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px var(--accent-glow);
+        }
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            background: #ea580c;
+        }
+
+        /* Pain Points Banner */
+        .pain-points {
+            background: rgba(239, 68, 68, 0.04);
+            border: 1px solid rgba(239, 68, 68, 0.15);
+            padding: 30px;
+            border-radius: 20px;
+            margin: -50px auto 60px;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            backdrop-filter: blur(10px);
+        }
+        .pain-points h3 {
+            color: #fca5a5;
+            margin-top: 0;
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+        .pain-points p { color: #cbd5e1; font-size: 1.1rem; }
+
+        /* Section Titles */
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            margin-bottom: 60px;
+            font-weight: 900;
+            color: white;
+        }
+        .section-title span { color: var(--accent); }
+
+        /* Features Grid */
+        .features-section { padding: 50px 0 90px; }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            justify-content: center;
+        }
+        .feature-card {
+            background: var(--bg-card);
+            padding: 45px 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-top: 4px solid var(--accent);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover { 
+            transform: translateY(-8px); 
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.08);
+        }
+        .feature-card h3 { 
+            font-size: 1.35rem; 
+            margin-bottom: 25px; 
+            color: white; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            gap: 12px; 
+        }
+        .feature-list { 
+            list-style: none; 
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .feature-list li { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 10px; 
+            font-size: 1.02rem; 
+            color: var(--text-muted); 
+        }
+        .feature-list li::before { 
+            content: '✓'; 
+            color: var(--success); 
+            font-weight: bold; 
+            font-size: 1.2rem; 
+        }
+
+        /* Demo Showcase Section (Videos) */
+        .showcase-section {
+            padding: 80px 0;
+            background: rgba(15, 23, 42, 0.25);
+            border-top: 1px solid rgba(255,255,255,0.02);
+            border-bottom: 1px solid rgba(255,255,255,0.02);
+        }
+        .showcase-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        .tab-btn {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--text-muted);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+            box-shadow: 0 5px 20px var(--accent-glow);
+        }
+        .video-container-wrapper {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.4s ease;
+        }
+        .video-container-wrapper.active {
+            display: flex;
+        }
+        .video-frame-box {
+            background: var(--bg-card);
+            padding: 18px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            max-width: 100%;
+            overflow: hidden;
+        }
+        .video-frame-box iframe {
+            border-radius: 10px;
+            max-width: 100%;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Pricing Section */
+        .pricing-section { padding: 90px 0; }
+        .pricing-note {
+            color: var(--accent);
+            background: rgba(249, 115, 22, 0.05);
+            padding: 18px 25px;
+            border-radius: 50px;
+            max-width: 700px;
+            margin: 0 auto 50px;
+            border: 1px dashed rgba(249, 115, 22, 0.25);
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 35px;
+            justify-content: center;
+        }
+        .plan-card {
+            background: var(--bg-card);
+            padding: 45px 30px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        .plan-card:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            transform: translateY(-4px);
+        }
+        .plan-card h3 { font-size: 1.8rem; color: white; margin-bottom: 10px; }
+        .plan-desc { color: var(--text-muted); margin-bottom: 25px; font-size: 1.05rem; }
+        .price-setup { font-size: 1.7rem; font-weight: 900; color: var(--accent); margin-bottom: 8px; }
+        .price-min { display: block; font-size: 1rem; color: var(--text-muted); margin-bottom: 30px; }
+        
+        .demo-link {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.03);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            margin-top: 25px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+        .demo-link:hover { 
+            background: var(--accent); 
+            border-color: var(--accent);
+            box-shadow: 0 5px 15px var(--accent-glow);
+        }
+
+        /* Form Section (خلفية رمادي فاتح ناعم ومريح جداً للعين - Off-White) */
+        .form-section { padding: 90px 0; background: rgba(15, 23, 42, 0.2); }
+        .form-box {
+            background: #f8fafc;
+            padding: 50px 40px;
+            border-radius: 24px;
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--secondary);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .form-box h2 { margin-bottom: 35px; font-size: 1.8rem; color: var(--secondary); }
+        form { width: 100%; display: flex; flex-direction: column; align-items: center; }
+        .form-group { width: 100%; max-width: 500px; margin-bottom: 22px; display: flex; flex-direction: column; align-items: center; }
+        .form-group label { margin-bottom: 10px; font-weight: 700; color: var(--secondary); font-size: 1.05rem; }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 15px;
+            background: #ffffff;
+            border: 2px solid #cbd5e1;
+            color: var(--secondary);
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .form-group input:focus, .form-group select:focus { 
+            border-color: var(--accent); 
+            outline: none; 
+            box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15);
+        }
+        .form-group select option { background: #ffffff; color: var(--secondary); }
+        .submit-btn {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            border: none;
+            width: 100%;
+            max-width: 500px;
+            padding: 16px;
+            font-size: 1.2rem;
+            font-weight: 900;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.25);
+        }
+        .submit-btn:hover { 
+            transform: scale(1.02); 
+            box-shadow: 0 12px 30px rgba(16, 185, 129, 0.4); 
+        }
+
+        /* Footer */
+        .footer { background-color: #05070d; padding: 80px 20px 30px; border-top: 1px solid rgba(255,255,255,0.02); }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+            justify-content: center;
+        }
+        .footer-col { display: flex; flex-direction: column; align-items: center; }
+        .footer-col h4 { color: white; font-size: 1.2rem; margin-bottom: 20px; color: var(--accent); font-weight: 900; }
+        .footer-col p, .footer-col a { color: var(--text-muted); text-decoration: none; margin-bottom: 10px; line-height: 1.7; transition: color 0.3s ease; }
+        .footer-col a:hover { color: white; }
+        
+        .instapay-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 12px 25px;
+            border-radius: 50px;
+            margin-top: 12px;
+            transition: all 0.3s ease;
+        }
+        .instapay-box:hover {
+            border-color: var(--accent);
+            background: rgba(249, 115, 22, 0.05);
+        }
+
+        .footer-bottom { 
+            text-align: center; 
+            padding-top: 25px; 
+            border-top: 1px solid rgba(255,255,255,0.02); 
+            color: rgba(255,255,255,0.35); 
+            font-size: 0.9rem; 
+        }
+
+        /* Sticky CTA */
+        .sticky-cta {
+            position: fixed;
+            bottom: 0; left: 0; width: 100%;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(15px);
+            padding: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        .sticky-cta a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            padding: 10px 35px;
+            border-radius: 50px;
+            font-weight: 900;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 20px var(--accent-glow);
+            transition: all 0.3s ease;
+        }
+        .sticky-cta a:hover {
+            transform: translateY(-2px);
+            background: #ea580c;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-container">
+            <a href="https://www.alienstech.me" class="logo-brand" target="_blank">
+                <img src="logo.png" alt="Aliens Tech Logo" class="logo-icon">
+                <div class="brand-text">Aliens <span>Tech</span></div>
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>ارتقِ من مجرد صانع محتوى<br>إلى <span>مؤسسة تعليمية كاملة</span></h1>
+            <p>منصة تعليمية ذكية تضع بين يديك نفس التكنولوجيا التي تعتمد عليها Google لخدمة العالم؛ سرعة فائقة، استقرار لا يهتز، وحماية فولاذية لمحتواك. من إدارة الحجوزات لتصحيح الامتحانات بالذكاء الاصطناعي.. تفرغ أنت للإبداع، ودع التكنولوجيا لنا.</p>
+            <a href="#booking-form" class="hero-btn">احجز منصتك الآن 👇</a>
+        </div>
+    </section>
+
+    <!-- Pain Points -->
+    <div class="container">
+        <div class="pain-points">
+            <h3>هل تعاني من هذه المشاكل؟</h3>
+            <p>ضياع مجهودك بسبب سرقة الفيديوهات وتصوير الشاشة؟ إرهاق تصحيح مئات الامتحانات يدوياً؟ سقوط سيرفر المنصة ليلة الامتحان وقت المراجعة؟ صعوبة إقناع أولياء الأمور بمتابعتك؟ <strong>لقد حان وقت التغيير.</strong></p>
+        </div>
+    </div>
+
+    <!-- Features -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title">التكنولوجيا التي <span>ستعمل لأجلك</span></h2>
+            <div class="features-grid">
+                
+                <div class="feature-card">
+                    <h3>🛡️ حماية فولاذية لمجهودك</h3>
+                    <ul class="feature-list">
+                        <li>استحالة السرقة بروابط موقعة ديناميكياً تمنع التحميل أو التصوير.</li>
+                        <li>منع تشارك الحسابات نهائياً بنظام بصمة الجهاز.</li>
+                        <li>علامة مائية كاشفة تظهر باسم ورقم الطالب ديناميكياً لتفضح أي تسريب.</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>🤖 قوة الذكاء الاصطناعي الكاملة</h3>
+                    <ul class="feature-list">
+                        <li>استخراج الأسئلة من المناهج وإضافتها لبنك الأسئلة بضغطة زر واحدة.</li>
+                        <li>تصحيح آلي بالكامل للامتحانات شاملاً الأسئلة المقالية الطويلة بدقة فائقة.</li>
+                        <li>بوت للرد الآلي على استفسارات الطلاب المتكررة 24 ساعة يومياً.</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h3>📈 تسويق وثقة أولياء الأمور</h3>
+                    <ul class="feature-list">
+                        <li>إرسال تقارير آلية لولي الأمر بدرجات الطالب والتزامه عبر تيليجرام.</li>
+                        <li>إجبار الطالب على اجتياز الحصة والواجب قبل فتح الدرس التالي.</li>
+                        <li>إنشاء كوبونات خصم مخصصة لدروس محددة لزيادة مبيعاتك.</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h3>⚡ استقرار تقني واستقلال مالي</h3>
+                    <ul class="feature-list">
+                        <li>بنية تحتية تتحمل ضغط آلاف الطلاب ليلة الامتحان بدون أعطال.</li>
+                        <li>ربط مباشر مع فودافون كاش وفوري وفيزا؛ الكورس يُفتح فوراً للطلاب.</li>
+                        <li>المنصة بالكامل تحمل اسمك، شعارك، وألوانك الخاصة.</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h3>📝 نظام امتحانات ذكي ومتطور</h3>
+                    <ul class="feature-list">
+                        <li>دعم 12 نوعاً مختلفاً من الأسئلة والخرائط التفاعلية.</li>
+                        <li>تحديد وقت دقيق للاختبار مع إغلاق تلقائي عند انتهائه.</li>
+                        <li>عرض الإجابات الصحيحة وتفسيرها للطلاب بعد التسليم.</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h3>📊 إحصائيات ولوحة تحكم شاملة</h3>
+                    <ul class="feature-list">
+                        <li>متابعة دقيقة لمعدلات حضور وتفاعل كل طالب أولاً بأول.</li>
+                        <li>تقارير مالية مفصلة تعرض أرباح الكورسات والاشتراكات.</li>
+                        <li>إشعارات وتنبيهات فورية للطلاب عبر المنصة لتأكيد المواعيد.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Showcase Section (Videos) -->
+    <section class="showcase-section">
+        <div class="container">
+            <h2 class="section-title">شاهد شكل المنصة <span>وطريقة عرضها</span></h2>
+            
+            <div class="showcase-tabs">
+                <button class="tab-btn active" onclick="switchTab('pc', event)">🖥️ عرض الكمبيوتر</button>
+                <button class="tab-btn" onclick="switchTab('mobile', event)">📱 عرض الموبايل</button>
+            </div>
+
+            <!-- PC Video -->
+            <div id="pc-view" class="video-container-wrapper active">
+                <div class="video-frame-box">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/ZFYznozmhsg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <!-- Mobile Video -->
+            <div id="mobile-view" class="video-container-wrapper">
+                <div class="video-frame-box" style="max-width: 315px; margin: 0 auto;">
+                    <iframe width="315" height="560" src="https://www.youtube.com/embed/QprVr2rJPqA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="width: 100%; height: 500px; border-radius: 10px;"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing-section">
+        <div class="container">
+            <h2 class="section-title">استثمارك في <span>الكيان الصحيح</span></h2>
+            
+            <div class="pricing-note">
+                لا عمولات مقتطعة من أرباحك! تكلفة التشغيل ثابتة: 15 جنيهاً فقط شهرياً عن كل طالب نشط.
+            </div>
+            
+            <div class="plans-grid">
+                
+                <div class="plan-card">
+                    <h3>المنصة الخاصة</h3>
+                    <p class="plan-desc">الخيار الأمثل للمدرس أو المحاضر المستقل</p>
+                    <div class="price-setup">10,000 ج.م <span style="font-size: 0.95rem; color: var(--text-muted); font-weight: normal;">(رسوم تأسيس لمرة واحدة)</span></div>
+                    <span class="price-min">الحد الأدنى للتشغيل: 3,000 ج.م / شهرياً</span>
+                    
+                    <ul class="feature-list">
+                        <li>منصة مستقلة بالكامل باسمك وشعارك</li>
+                        <li>لوحة تحكم شاملة لإدارة الكورسات</li>
+                        <li>كافة خواص الحماية والـ AI مفعلة</li>
+                    </ul>
+                    
+                    <a href="https://www.mrbessadafouad.com" class="demo-link" target="_blank">معاينة منصة مستر بسادة ↗</a>
+                </div>
+
+                <div class="plan-card" style="border-top: 4px solid var(--accent);">
+                    <h3>الأكاديمية المتكاملة</h3>
+                    <p class="plan-desc">الحل الشامل للسناتر والكيانات التعليمية</p>
+                    <div class="price-setup">15,000 ج.م <span style="font-size: 0.95rem; color: var(--text-muted); font-weight: normal;">(رسوم تأسيس لمرة واحدة)</span></div>
+                    <span class="price-min">الحد الأدنى للتشغيل: 5,000 ج.م / شهرياً</span>
+                    
+                    <ul class="feature-list">
+                        <li>إدارة كيان يضم عدة مدرسين ومساعدين</li>
+                        <li>لوحات تحكم بصلاحيات مخصصة</li>
+                        <li>تقارير مالية دقيقة لكل مدرس</li>
+                    </ul>
+                    
+                    <a href="https://elmohtarif.alienstech.me" class="demo-link" target="_blank">معاينة نموذج للأكاديمية ↗</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="form-section">
+        <div class="container">
+            <div class="form-box" id="booking-form">
+                <h2>جاهز لامتلاك منصتك؟ سجل بياناتك الآن</h2>
+                <form id="whatsappForm">
+                    <div class="form-group">
+                        <label>الاسم بالكامل:</label>
+                        <input type="text" id="userName" required placeholder="مثال: أ. أحمد محمد">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>رقم الواتساب للتواصل:</label>
+                        <input type="tel" id="userPhone" required placeholder="01xxxxxxxxx">
+                    </div>
+
+                    <div class="form-group">
+                        <label>المادة أو التخصص:</label>
+                        <input type="text" id="userSubject" required placeholder="مثال: لغة عربية - فيزياء">
+                    </div>
+
+                    <div class="form-group">
+                        <label>عدد الطلاب المتوقع إدخالهم على المنصة (تقريباً):</label>
+                        <input type="number" id="userStudents" required placeholder="اكتب العدد التقريبي هنا (مثال: 500)" min="1">
+                    </div>
+
+                    <div class="form-group">
+                        <label>نوع الخدمة الأنسب لك:</label>
+                        <select id="userService" required>
+                            <option value="" disabled selected>اختر الخدمة...</option>
+                            <option value="المنصة الخاصة (لمدرس أو محاضر مستقل)">المنصة الخاصة (لمدرس أو محاضر مستقل)</option>
+                            <option value="الأكاديمية المتكاملة (لسنتر أو كيان يضم عدة مدرسين)">الأكاديمية المتكاملة (لسنتر أو كيان يضم عدة مدرسين)</option>
+                            <option value="غير متأكد، أحتاج إلى استشارة فنية">غير متأكد، أحتاج إلى استشارة فنية</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="submit-btn">إرسال التفاصيل عبر واتساب 💬</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                
+                <div class="footer-col">
+                    <h4>شركة الينزتك (Aliens Tech)</h4>
+                    <p>الشريك التقني الأقوى لنمو أعمالك الرقمية وحلول البنية التحتية والبرمجيات.</p>
+                    <p><strong>المقر:</strong> العاشر من رمضان، محافظة الشرقية، مصر</p>
+                    <p><strong>الموقع الرسمي:</strong> <a href="https://www.alienstech.me" target="_blank">www.alienstech.me</a></p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>طرق الدفع للشركة</h4>
+                    <p>نقبل سداد الرسوم والاشتراكات لشركة Aliens Tech عبر إنستاباي (InstaPay) لضمان سرعة التفعيل:</p>
+                    <div class="instapay-box">
+                        <a href="https://ipn.eg/S/giuseppe/instapay/253j5O" target="_blank" style="color: var(--accent); font-weight: 900; font-size: 1.15rem; letter-spacing: 1px;">giuseppe@instapay</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>تواصل معنا</h4>
+                    <p><strong>إدارة المبيعات (واتساب/هاتف):</strong><br> <a href="https://wa.me/201221399867" target="_blank" dir="ltr">+20 122 1399 867</a></p>
+                    <div style="margin-top: 15px; border-top: 1px solid rgba(255,255,255,0.04); padding-top: 15px;">
+                        <p style="font-size: 0.9rem;"><strong>الرقم الضريبي:</strong> 986-290-587</p>
+                        <p style="font-size: 0.9rem;"><strong>سجل تجاري رقم:</strong> 151766</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 جميع الحقوق محفوظة لشركة Aliens Tech.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sticky Button (Mobile) -->
+    <div class="sticky-cta">
+        <a href="#booking-form">احجز كيانك الرقمي الآن 👇</a>
+    </div>
+
+    <!-- JavaScript For Tabs & WhatsApp -->
+    <script>
+        function switchTab(type, event) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.video-container-wrapper').forEach(wrap => wrap.classList.remove('active'));
+
+            event.currentTarget.classList.add('active');
+            if(type === 'pc') {
+                document.getElementById('pc-view').classList.add('active');
+            } else {
+                document.getElementById('mobile-view').classList.add('active');
+            }
+        }
+
+        document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('userName').value;
+            const phone = document.getElementById('userPhone').value;
+            const subject = document.getElementById('userSubject').value;
+            const students = document.getElementById('userStudents').value;
+            const service = document.getElementById('userService').value;
+
+            const companyWhatsapp = "201221399867"; 
+
+            const message = `أهلاً فريق مبيعات Aliens Tech 🚀\nأنا مهتم بتأسيس منظومة تعليمية، وهذه بياناتي للتواصل:\n\n👤 الاسم: ${name}\n📱 رقم التواصل: ${phone}\n📚 المادة/التخصص: ${subject}\n👥 عدد الطلاب التقريبي: ${students} طالب\n🎯 الخدمة الأقرب لاحتياجي: ${service}\n\nبرجاء التواصل معي لتحديد موعد للمعاينة والتفاصيل.`;
+
+            const encodedMessage = encodeURIComponent(message);
+            window.location.href = `https://wa.me/${companyWhatsapp}?text=${encodedMessage}`;
+        });
+    </script>
+
+</body>
+</html>
